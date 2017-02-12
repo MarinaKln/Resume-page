@@ -1,0 +1,44 @@
+@font-face {
+    font-family: 'Minaxi Hairline';
+    src: url('../fonts/Minaxi Hairline/Minaxi Hairline.eot');
+    src: local('Minaxi Hairline'),
+         url('../fonts/Minaxi Hairline/Minaxi Hairline.woff') format('woff'),
+         url('../fonts/Minaxi Hairline/Minaxi Hairline.ttf') format('truetype'),
+         url('../fonts/Minaxi Hairline/Minaxi Hairline.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Code Pro Light';
+    src: url('../fonts/Code Pro/Code Pro Light/Code Pro Light.eot');
+    src: local('Code Pro Light'),
+         url('../fonts/Code Pro/Code Pro Light/Code Pro Light.woff') format('woff'),
+         url('../fonts/Code Pro/Code Pro Light/Code Pro Light.ttf') format('truetype'),
+         url('../fonts/Code Pro/Code Pro Light/Code Pro Light.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Code Pro Regular';
+    src: url('../fonts/Code Pro/Code Pro Regular/Code Pro.eot');
+    src: local('Code Pro Regular'),
+         url('../fonts/Code Pro/Code Pro Regular/Code Pro.woff') format('woff'),
+         url('../fonts/Code Pro/Code Pro Regular/Code Pro.ttf') format('truetype'),
+         url('../fonts/Code Pro/Code Pro Regular/Code Pro.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family:"Corbert";
+    src:url("../fonts/Corbert/Corbert-Regular.eot?") format("eot");
+    src: local('Corbert'),
+         url("../fonts/Corbert/Corbert-Regular.woff") format("woff"),
+         url("../fonts/Corbert/Corbert-Regular.ttf") format("truetype"),
+         url("../fonts/Corbert/Corbert-Regular.svg") format("svg");
+    font-weight:normal;
+    font-style:normal;
+}
