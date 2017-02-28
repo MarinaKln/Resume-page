@@ -1,4 +1,5 @@
 import FirstScreen from "./firstScreen";
+import Sidebar from "./sidebar";
 import SecondScreen from "./secondScreen";
 import ThirdScreen from "./thirdScreen";
 import FourthScreen from "./fourthScreen";
@@ -9,6 +10,7 @@ let Main = React.createClass({
         return (
             <div className="main">
                 <FirstScreen />
+                <Sidebar />
                 <SecondScreen />
                 <ThirdScreen />
                 <FourthScreen />

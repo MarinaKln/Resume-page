@@ -1,6 +1,4 @@
-import Button from "../common/button";
-
-var portfolio = [
+let portfolio = [
     {
         src: "style/images/portfolio/todo-mvc.png",
         title: "TODO app",
@@ -19,7 +17,7 @@ var portfolio = [
     }
 ];
 
-var PortfolioItem = React.createClass({
+let PortfolioItem = React.createClass({
     render: function () {
         return (
             <a href={this.props.link} target="_blank" className="portfolio-item_link">
@@ -36,7 +34,7 @@ var PortfolioItem = React.createClass({
     }
 });
 
-var ThirdScreen = React.createClass({
+let ThirdScreen = React.createClass({
     createPortfItem: function (item, index) {
         return (
             <PortfolioItem
@@ -57,12 +55,9 @@ var ThirdScreen = React.createClass({
                 </div>
                 <div className="third-screen_content">
                     {portfolio.map(this.createPortfItem)}
-                    <a href="https://github.com/MarinaKln" target="_blank">
-                        <Button
-                            text = {"VIEW GitHub PROFILE"}
-                        />
+                    <a className="button" href="https://github.com/MarinaKln" target="_blank">
+                        VIEW GitHub PROFILE
                     </a>
-
                 </div>
             </div>
         )

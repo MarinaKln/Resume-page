@@ -9,32 +9,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 ReactDOM.render(React.createElement(_main2.default, null), document.getElementsByClassName("container")[0]);
 
-},{"./components/main":6}],2:[function(require,module,exports){
+},{"./components/main":5}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var Button = React.createClass({
-    displayName: "Button",
+// require('velocity-animate');
+// require('velocity-animate/velocity.ui');
+// import {VelocityComponent, VelocityTransitionGroup} from 'velocity-react';
+// import SecondScreen from "./secondScreen";
 
-    render: function render() {
-        return React.createElement(
-            "button",
-            { className: "button", onClick: this.props.click },
-            this.props.text
-        );
-    }
-});
 
-exports.default = Button;
-
-},{}],3:[function(require,module,exports){
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
 var FirstScreen = React.createClass({
     displayName: "FirstScreen",
 
@@ -52,15 +38,18 @@ var FirstScreen = React.createClass({
             portfolio: document.getElementsByClassName("portfolio")[0],
             contacts: document.getElementsByClassName("contacts")[0]
         });
-        Velocity(document.getElementsByClassName("first-screen_title")[0], "fadeIn", {
-            duration: 3000
-        });
+        console.log(this.Top());
     },
 
+    Top: function Top() {
+        var top = void 0;
+        return top = this.refs.top;
+    },
     Scroll: function Scroll(e) {
+        var target = void 0;
         switch (e.target.className) {
             case "to-resume-link":
-                var target = this.state.resume;
+                target = this.state.resume;
                 break;
             case "to-portfolio-link":
                 target = this.state.portfolio;
@@ -80,13 +69,13 @@ var FirstScreen = React.createClass({
             "div",
             { className: "first-screen" },
             React.createElement(
-                "a",
-                { name: "top", className: "top" },
-                " "
-            ),
-            React.createElement(
                 "div",
                 { className: "navigation-box" },
+                React.createElement(
+                    "a",
+                    { name: "top", ref: "top", className: "top" },
+                    " "
+                ),
                 React.createElement(
                     "nav",
                     { className: "navigation" },
@@ -132,7 +121,7 @@ var FirstScreen = React.createClass({
 
 exports.default = FirstScreen;
 
-},{}],4:[function(require,module,exports){
+},{}],3:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -161,7 +150,7 @@ var Footer = React.createClass({
 
 exports.default = Footer;
 
-},{}],5:[function(require,module,exports){
+},{}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -273,7 +262,7 @@ var FourthScreen = React.createClass({
 
 exports.default = FourthScreen;
 
-},{}],6:[function(require,module,exports){
+},{}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -283,6 +272,10 @@ Object.defineProperty(exports, "__esModule", {
 var _firstScreen = require("./firstScreen");
 
 var _firstScreen2 = _interopRequireDefault(_firstScreen);
+
+var _sidebar = require("./sidebar");
+
+var _sidebar2 = _interopRequireDefault(_sidebar);
 
 var _secondScreen = require("./secondScreen");
 
@@ -310,6 +303,7 @@ var Main = React.createClass({
             "div",
             { className: "main" },
             React.createElement(_firstScreen2.default, null),
+            React.createElement(_sidebar2.default, null),
             React.createElement(_secondScreen2.default, null),
             React.createElement(_thirdScreen2.default, null),
             React.createElement(_fourthScreen2.default, null),
@@ -320,20 +314,18 @@ var Main = React.createClass({
 
 exports.default = Main;
 
-},{"./firstScreen":3,"./footer":4,"./fourthScreen":5,"./secondScreen":7,"./thirdScreen":8}],7:[function(require,module,exports){
+},{"./firstScreen":2,"./footer":3,"./fourthScreen":4,"./secondScreen":6,"./sidebar":7,"./thirdScreen":8}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+// require('velocity-animate');
+// require('velocity-animate/velocity.ui');
+// import {VelocityComponent, VelocityTransitionGroup} from 'velocity-react';
 
-var _button = require("../common/button");
 
-var _button2 = _interopRequireDefault(_button);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var technology = [{ item: "HTML / HTML5" }, { item: "CSS / CSS3" }, { item: "SASS / SCSS" }, { item: "Adaptive Markup" }, { item: "Cross-Browser Compatibility" }, { item: "JavaScript" }, { item: "React.js" }, { item: "Gulp" }, { item: "Version Control ( GIT )" }, { item: "Velocity.js" }, { item: "jQuery" }, { item: "Photoshop" }, { item: "Task-manager ( JIRA )" }];
+var technologies = ["HTML / HTML5", "CSS / CSS3", "SASS / SCSS", "Adaptive Markup", "Cross-Browser Compatibility", "JavaScript", "React.js", "Gulp", "Version Control ( GIT )", "Velocity.js", "jQuery", "Photoshop", "Task-manager ( JIRA )"];
 
 var ResumeList = React.createClass({
     displayName: "ResumeList",
@@ -341,7 +333,7 @@ var ResumeList = React.createClass({
     render: function render() {
         return React.createElement(
             "li",
-            { className: "tech-item" },
+            { className: "tech-item", ref: "item" },
             this.props.item
         );
     }
@@ -350,94 +342,13 @@ var ResumeList = React.createClass({
 var SecondScreen = React.createClass({
     displayName: "SecondScreen",
 
-    getInitialState: function getInitialState() {
-        return {
-            visibility: false,
-            heightScreen: null,
-            resume: null,
-            portfolio: null,
-            contacts: null,
-            top: null
-        };
-    },
-    componentDidMount: function componentDidMount() {
-        window.addEventListener("scroll", this.handleScroll);
-        this.setState({
-            heightScreen: document.getElementsByClassName("first-screen")[0].offsetHeight,
-            resume: document.getElementsByClassName("resume")[0],
-            portfolio: document.getElementsByClassName("portfolio")[0],
-            contacts: document.getElementsByClassName("contacts")[0],
-            top: document.getElementsByClassName("top")[0]
-        });
-        console.log(this.state.heightScreen);
-    },
-
-    handleScroll: function handleScroll() {
-        var scrollTop = event.target.body.scrollTop,
-            Height = this.state.heightScreen;
-        if (scrollTop > Height - 10) {
-            this.setState({
-                visibility: true
-            });
-        } else {
-            this.setState({
-                visibility: false
-            });
-        }
-    },
     createResumeList: function createResumeList(item, index) {
         return React.createElement(ResumeList, {
             key: index,
-            item: item.item
-        });
-    },
-    Scroll: function Scroll(e) {
-        switch (e.target.className) {
-            case "sidebar_resume-link":
-                var target = this.state.resume;
-                break;
-            case "sidebar_portf-link":
-                target = this.state.portfolio;
-                break;
-            case "sidebar_cont-link":
-                target = this.state.contacts;
-                break;
-            case "sidebar_top-link":
-                target = this.state.top;
-        }
-        Velocity(target, "scroll", {
-            duration: 800
+            item: item
         });
     },
     render: function render() {
-        var sidebar = null,
-            visibility = this.state.visibility;
-        if (visibility) {
-            sidebar = React.createElement(
-                "div",
-                { className: "sidebar" },
-                React.createElement(
-                    "a",
-                    { className: "sidebar_top-link", onClick: this.Scroll },
-                    " "
-                ),
-                React.createElement(
-                    "a",
-                    { className: "sidebar_resume-link", onClick: this.Scroll },
-                    " "
-                ),
-                React.createElement(
-                    "a",
-                    { className: "sidebar_portf-link", onClick: this.Scroll },
-                    " "
-                ),
-                React.createElement(
-                    "a",
-                    { className: "sidebar_cont-link", onClick: this.Scroll },
-                    " "
-                )
-            );
-        }
         return React.createElement(
             "div",
             { className: "second-screen" },
@@ -446,7 +357,7 @@ var SecondScreen = React.createClass({
                 { className: "second-screen_title" },
                 React.createElement(
                     "a",
-                    { name: "resume", className: "resume" },
+                    { name: "resume", className: "resume", ref: "resume" },
                     " "
                 ),
                 React.createElement(
@@ -484,7 +395,7 @@ var SecondScreen = React.createClass({
                     React.createElement(
                         "ul",
                         null,
-                        technology.map(this.createResumeList)
+                        technologies.map(this.createResumeList)
                     )
                 ),
                 React.createElement(
@@ -525,8 +436,11 @@ var SecondScreen = React.createClass({
                         "Bachelor of Psychology, 2016"
                     )
                 ),
-                React.createElement(_button2.default, { text: "DOWNLOAD RESUME" }),
-                sidebar
+                React.createElement(
+                    "a",
+                    { className: "button", href: "cv/marina.kaliuzhnaya_cv.pdf", download: true },
+                    "DOWNLOAD RESUME"
+                )
             )
         );
     }
@@ -534,19 +448,107 @@ var SecondScreen = React.createClass({
 
 exports.default = SecondScreen;
 
-},{"../common/button":2}],8:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+var Sidebar = React.createClass({
+    displayName: "Sidebar",
 
-var _button = require("../common/button");
+    getInitialState: function getInitialState() {
+        return {
+            visibility: false,
+            heightScreen: null,
+            resume: null,
+            portfolio: null,
+            contacts: null,
+            top: null
+        };
+    },
+    componentDidMount: function componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
+        this.setState({
+            heightScreen: document.getElementsByClassName("first-screen")[0].offsetHeight,
+            resume: document.getElementsByClassName("resume")[0],
+            portfolio: document.getElementsByClassName("portfolio")[0],
+            contacts: document.getElementsByClassName("contacts")[0],
+            top: document.getElementsByClassName("top")[0]
+        });
+    },
 
-var _button2 = _interopRequireDefault(_button);
+    handleScroll: function handleScroll(e) {
+        var scrollTop = e.target.body.scrollTop,
+            height = this.state.heightScreen;
+        console.log(scrollTop, height);
+        return this.setState({
+            visibility: scrollTop >= height
+        });
+    },
+    Scroll: function Scroll(e) {
+        var target = void 0;
+        switch (e.target.className) {
+            case "sidebar_resume-link":
+                target = this.state.resume;
+                break;
+            case "sidebar_portf-link":
+                target = this.state.portfolio;
+                break;
+            case "sidebar_cont-link":
+                target = this.state.contacts;
+                break;
+            case "sidebar_top-link":
+                target = this.state.top;
+        }
+        Velocity(target, "scroll", {
+            duration: 800
+        });
+    },
+    render: function render() {
+        var sidebar = void 0;
+        if (this.state.visibility) {
+            sidebar = React.createElement(
+                "div",
+                { className: "sidebar" },
+                React.createElement(
+                    "a",
+                    { className: "sidebar_top-link", onClick: this.Scroll },
+                    " "
+                ),
+                React.createElement(
+                    "a",
+                    { className: "sidebar_resume-link", onClick: this.Scroll },
+                    " "
+                ),
+                React.createElement(
+                    "a",
+                    { className: "sidebar_portf-link", onClick: this.Scroll },
+                    " "
+                ),
+                React.createElement(
+                    "a",
+                    { className: "sidebar_cont-link", onClick: this.Scroll },
+                    " "
+                )
+            );
+        }
+        return React.createElement(
+            "div",
+            null,
+            sidebar
+        );
+    }
+});
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+exports.default = Sidebar;
 
+},{}],8:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 var portfolio = [{
     src: "style/images/portfolio/todo-mvc.png",
     title: "TODO app",
@@ -635,10 +637,8 @@ var ThirdScreen = React.createClass({
                 portfolio.map(this.createPortfItem),
                 React.createElement(
                     "a",
-                    { href: "https://github.com/MarinaKln", target: "_blank" },
-                    React.createElement(_button2.default, {
-                        text: "VIEW GitHub PROFILE"
-                    })
+                    { className: "button", href: "https://github.com/MarinaKln", target: "_blank" },
+                    "VIEW GitHub PROFILE"
                 )
             )
         );
@@ -647,4 +647,4 @@ var ThirdScreen = React.createClass({
 
 exports.default = ThirdScreen;
 
-},{"../common/button":2}]},{},[1]);
+},{}]},{},[1]);

@@ -1,4 +1,10 @@
-var FirstScreen = React.createClass({
+// require('velocity-animate');
+// require('velocity-animate/velocity.ui');
+// import {VelocityComponent, VelocityTransitionGroup} from 'velocity-react';
+// import SecondScreen from "./secondScreen";
+
+
+let FirstScreen = React.createClass({
     getInitialState: function () {
        return ({
            visibility: true,
@@ -13,14 +19,17 @@ var FirstScreen = React.createClass({
             portfolio: document.getElementsByClassName("portfolio")[0],
             contacts: document.getElementsByClassName("contacts")[0]
         });
-        Velocity(document.getElementsByClassName("first-screen_title")[0],"fadeIn" , {
-            duration: 3000
-        });
+        console.log(this.Top());
+    },
+    Top: function () {
+        let top;
+        return top = this.refs.top;
     },
     Scroll: function (e) {
+        let target;
         switch (e.target.className) {
             case "to-resume-link":
-                var target = this.state.resume;
+                target = this.state.resume;
                 break;
             case "to-portfolio-link":
                 target = this.state.portfolio;
@@ -38,8 +47,8 @@ var FirstScreen = React.createClass({
     render: function() {
         return (
             <div className="first-screen">
-                <a name="top" className="top"> </a>
                 <div className="navigation-box">
+                    <a name="top" ref={"top"} className="top"> </a>
                     <nav className="navigation">
                         <a className="to-resume-link" onClick={this.Scroll}> RESUME </a>
                         <a className="to-portfolio-link" onClick={this.Scroll}> PORTFOLIO </a>
@@ -55,9 +64,6 @@ var FirstScreen = React.createClass({
         )
     }
 });
-
-
-
 
 
 export default FirstScreen;

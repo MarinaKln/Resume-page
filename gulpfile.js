@@ -1,7 +1,6 @@
 var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     sass = require('gulp-sass'),
-    cleanCSS = require('gulp-clean-css'),
     livereload = require('gulp-livereload'),
     connect = require('gulp-connect'),
     babel = require('gulp-babel'),
@@ -15,7 +14,8 @@ var gulp = require('gulp'),
 gulp.task('connect', function() {
     connect.server({
         root: '',
-        livereload: true
+        livereload: true,
+        port: 8888
     });
 });
 
@@ -25,20 +25,23 @@ gulp.task('css', function () {
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('style/css'));
     return gulp.src('style/css/style.css')
-        .pipe(cleanCSS(''))
-        .pipe(autoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
-        }))
-        .pipe(gulp.dest('style/css'))
         .pipe(livereload());
 });
 
+//autoprefixer
+gulp.task('prefix', function () {
+    return gulp.src('style/css/*.css')
+        .pipe(autoprefixer({
+            browsers: ['last 7 versions'],
+            cascade: false
+        }))
+        .pipe(gulp.dest('style/css'))
+});
 
 //build
 gulp.task('build', function () {
     return browserify({entries: 'js/app.js', extensions: ['.js']})
-        .transform('babelify', {presets: ['es2015', 'react']})
+        .transform('babelify', {presets: ['es2015', 'react']}, {compact: false})
         .bundle()
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('sourse'));
@@ -48,7 +51,7 @@ gulp.task('build', function () {
 gulp.task("watch", function() {
     livereload.listen();
     gulp.watch("style/*.scss", ["css"]);
-    gulp.watch("js/*.js", ["build"])
+    gulp.watch("js/**/*.js", ["build"])
 });
 
 // default

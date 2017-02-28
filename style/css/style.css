@@ -1,7 +1,7 @@
-@import url(fonts.css);
 body {
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  overflow-x: hidden; }
 
 a {
   text-decoration: none; }
@@ -33,7 +33,9 @@ div {
   cursor: pointer;
   transition: 0.5s;
   display: block;
-  margin: 30px auto; }
+  margin: 30px auto;
+  white-space: nowrap;
+  text-align: center; }
   .button:hover {
     background: #000000;
     color: #f4f5f5;
@@ -42,19 +44,21 @@ div {
 .main {
   background: url("../images/bakground/work (1).jpg") fixed; }
 
+.top, .resume, .portfolio, .contacts {
+  position: absolute;
+  top: 0; }
+
 .first-screen {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url("../images/bakground/work (2).png") no-repeat fixed;
+  background: url("../images/bakground/work (2).png") center center no-repeat fixed;
   background-size: cover;
   height: 100vh;
+  width: 100%;
   position: relative;
   z-index: 2;
   justify-content: space-between; }
-
-.top {
-  position: absolute; }
 
 .navigation-box {
   display: flex;
@@ -81,7 +85,7 @@ div {
 
 .first-screen_sub-headline {
   font-family: "Code Pro Light", sans-serif;
-  color: #000000;
+  color: #f4f5f5;
   font-size: 35px;
   position: relative;
   text-align: center; }
@@ -122,10 +126,13 @@ div {
     .scroll-down_link:hover:before {
       opacity: 1; }
 
-.second-screen, .third-screen, .fourth-screen {
+.second-screen,
+.third-screen,
+.fourth-screen {
   position: relative; }
 
-.third-screen, .fourth-screen {
+.third-screen,
+.fourth-screen {
   z-index: 2; }
 
 .second-screen {
@@ -157,6 +164,7 @@ div {
 
 .sidebar {
   position: fixed;
+  z-index: 10;
   right: 0;
   top: 225px;
   width: 100px;
@@ -411,115 +419,3 @@ div {
   justify-content: flex-end;
   flex-direction: column;
   align-items: center; }
-
-@media all and (max-width: 965px) {
-  .portfolio-item_link {
-    width: 100%; } }
-
-@media all and (max-width: 765px) {
-  .first-screen_headline {
-    font-size: 50px; }
-  .first-screen_sub-headline {
-    font-size: 25px; }
-  .first-screen_sub-headline::after,
-  .first-screen_sub-headline::before {
-    display: none; }
-  .second-screen_content li, span {
-    font-size: 20px; }
-  .resume_about-me h1::before,
-  .resume_about-me h1::after {
-    display: none; }
-  .resume-photo {
-    width: 205px;
-    height: 200px; }
-  .sidebar_top-link,
-  .sidebar_resume-link,
-  .sidebar_portf-link,
-  .sidebar_cont-link {
-    padding: 25px; }
-  .sidebar_cont-link:before,
-  .sidebar_portf-link:before,
-  .sidebar_resume-link:before,
-  .sidebar_top-link:before {
-    font-size: 13px; }
-  .second-screen_sub-title {
-    font-size: 25px; }
-  .portfolio-item {
-    flex-direction: column;
-    align-items: center; }
-  .portfolio-item_info {
-    align-items: center;
-    text-align: center;
-    margin: 10px; }
-  .portfolio-item_img {
-    border-radius: 100px; }
-  .fourth-screen_e-mail-box,
-  .fourth-screen_git-hub-box,
-  .fourth-screen_phone-box {
-    display: flex;
-    flex-direction: column;
-    align-items: center; } }
-
-@media all and (max-width: 675px) {
-  .navigation-box {
-    justify-content: center; }
-  .navigation {
-    font-size: 20px; } }
-
-@media all and (max-width: 545px) {
-  .first-screen_headline {
-    font-size: 40px; }
-  .navigation-box {
-    padding: 10px; }
-  .navigation {
-    font-size: 15px; }
-    .navigation a {
-      padding: 10px; }
-  .sidebar {
-    width: 55px; }
-  .sidebar_top-link,
-  .sidebar_resume-link,
-  .sidebar_portf-link,
-  .sidebar_cont-link {
-    padding: 20px;
-    margin: 10px; }
-  .sidebar_top-link:before,
-  .sidebar_resume-link:before,
-  .sidebar_portf-link:before,
-  .sidebar_cont-link:before {
-    display: none; }
-  .portfolio-item_info h2 {
-    font-size: 25px; }
-  .portfolio-item_info span {
-    font-size: 17px; }
-  .portfolio-item_info p {
-    font-size: 15px; }
-  .fourth-screen_e-title,
-  .fourth-screen_git-hub-title,
-  .fourth-screen_phone-title {
-    font-size: 21px; }
-  .fourth-screen_e-mail,
-  .fourth-screen_git-hub-link,
-  .fourth-screen_phone-number {
-    font-size: 18px;
-    margin: 10px; } }
-
-@media all and (max-width: 430px) {
-  .second-screen_content {
-    text-align: center; }
-    .second-screen_content h1, .second-screen_content h2 {
-      font-size: 20px; }
-    .second-screen_content li, .second-screen_content span, .second-screen_content p {
-      font-size: 15px; }
-    .second-screen_content p {
-      margin: 0; }
-  .portfolio-item_link {
-    width: auto; }
-  .portfolio-item {
-    flex-direction: column; }
-  .portfolio-item_info {
-    margin: 15px 0 0 0; } }
-
-@media all and (max-width: 320px) {
-  .sidebar {
-    display: none; } }
