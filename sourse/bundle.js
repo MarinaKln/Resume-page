@@ -15,12 +15,6 @@ ReactDOM.render(React.createElement(_main2.default, null), document.getElementsB
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-// require('velocity-animate');
-// require('velocity-animate/velocity.ui');
-// import {VelocityComponent, VelocityTransitionGroup} from 'velocity-react';
-// import SecondScreen from "./secondScreen";
-
-
 var FirstScreen = React.createClass({
     displayName: "FirstScreen",
 
@@ -41,10 +35,6 @@ var FirstScreen = React.createClass({
         console.log(this.Top());
     },
 
-    Top: function Top() {
-        var top = void 0;
-        return top = this.refs.top;
-    },
     Scroll: function Scroll(e) {
         var target = void 0;
         switch (e.target.className) {
@@ -320,11 +310,6 @@ exports.default = Main;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-// require('velocity-animate');
-// require('velocity-animate/velocity.ui');
-// import {VelocityComponent, VelocityTransitionGroup} from 'velocity-react';
-
-
 var technologies = ["HTML / HTML5", "CSS / CSS3", "SASS / SCSS", "Adaptive Markup", "Cross-Browser Compatibility", "JavaScript", "React.js", "Gulp", "Version Control ( GIT )", "Velocity.js", "jQuery", "Photoshop", "Task-manager ( JIRA )"];
 
 var ResumeList = React.createClass({
@@ -333,7 +318,7 @@ var ResumeList = React.createClass({
     render: function render() {
         return React.createElement(
             "li",
-            { className: "tech-item", ref: "item" },
+            { className: "tech-item" },
             this.props.item
         );
     }

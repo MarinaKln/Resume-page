@@ -1,9 +1,3 @@
-// require('velocity-animate');
-// require('velocity-animate/velocity.ui');
-// import {VelocityComponent, VelocityTransitionGroup} from 'velocity-react';
-// import SecondScreen from "./secondScreen";
-
-
 let FirstScreen = React.createClass({
     getInitialState: function () {
        return ({
@@ -20,10 +14,6 @@ let FirstScreen = React.createClass({
             contacts: document.getElementsByClassName("contacts")[0]
         });
         console.log(this.Top());
-    },
-    Top: function () {
-        let top;
-        return top = this.refs.top;
     },
     Scroll: function (e) {
         let target;

@@ -1,4 +1,4 @@
-var Footer = React.createClass({
+let Footer = React.createClass({
     render: function() {
         return (
             <div className="footer">

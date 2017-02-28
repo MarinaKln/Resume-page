@@ -1,8 +1,3 @@
-// require('velocity-animate');
-// require('velocity-animate/velocity.ui');
-// import {VelocityComponent, VelocityTransitionGroup} from 'velocity-react';
-
-
 let technologies = [
     "HTML / HTML5",
     "CSS / CSS3",
@@ -22,7 +17,7 @@ let technologies = [
 let ResumeList = React.createClass({
     render: function () {
         return (
-            <li className="tech-item" ref={"item"}>{this.props.item}</li>
+            <li className="tech-item">{this.props.item}</li>
         )
     }
 });

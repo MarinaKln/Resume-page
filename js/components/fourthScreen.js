@@ -1,4 +1,4 @@
-var FourthScreen = React.createClass({
+let FourthScreen = React.createClass({
     getInitialState: function () {
         return ({
             top: null
@@ -46,4 +46,4 @@ var FourthScreen = React.createClass({
     }
 });
 
-export  default FourthScreen;
+export default FourthScreen;

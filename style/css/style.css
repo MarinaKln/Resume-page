@@ -31,6 +31,7 @@ div {
   font-family: "Code Pro Light", sans-serif;
   font-size: 20px;
   cursor: pointer;
+  -webkit-transition: 0.5s;
   transition: 0.5s;
   display: block;
   margin: 30px auto;
@@ -39,6 +40,8 @@ div {
   .button:hover {
     background: #000000;
     color: #f4f5f5;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1); }
 
 .main {
@@ -49,8 +52,18 @@ div {
   top: 0; }
 
 .first-screen {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   background: url("../images/bakground/work (2).png") center center no-repeat fixed;
   background-size: cover;
@@ -58,11 +71,21 @@ div {
   width: 100%;
   position: relative;
   z-index: 2;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
   justify-content: space-between; }
 
 .navigation-box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
   padding: 30px; }
 
@@ -73,6 +96,7 @@ div {
     color: #f4f5f5;
     padding: 30px;
     cursor: pointer;
+    -webkit-transition: 1s;
     transition: 1s; }
     .navigation a:hover {
       color: #ef8555; }
@@ -109,6 +133,7 @@ div {
   background: url("../images/svg/down-arrow.svg") no-repeat;
   background-size: contain;
   cursor: pointer;
+  -webkit-transition: 1s;
   transition: 1s; }
   .scroll-down_link:before {
     content: "SCROLL DOWN";
@@ -120,8 +145,11 @@ div {
     top: -20px;
     left: -45px;
     opacity: 0;
+    -webkit-transition: 1s;
     transition: 1s; }
   .scroll-down_link:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
     transform: scale(1.2); }
     .scroll-down_link:hover:before {
       opacity: 1; }
@@ -168,7 +196,14 @@ div {
   right: 0;
   top: 225px;
   width: 100px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column; }
 
 .sidebar_top-link,
@@ -178,6 +213,7 @@ div {
   padding: 30px;
   cursor: pointer;
   margin: 20px;
+  -webkit-transition: 0.5s;
   transition: 0.5s; }
   .sidebar_top-link:before,
   .sidebar_resume-link:before,
@@ -189,6 +225,7 @@ div {
     font-family: "Minaxi Hairline", sans-serif;
     font-size: 15px;
     opacity: 0;
+    -webkit-transition: 0.6s;
     transition: 0.6s; }
   .sidebar_top-link:hover:before,
   .sidebar_resume-link:hover:before,
@@ -199,6 +236,8 @@ div {
   .sidebar_resume-link:hover,
   .sidebar_portf-link:hover,
   .sidebar_cont-link:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
     transform: scale(1.2); }
 
 .sidebar_top-link {
@@ -279,17 +318,33 @@ div {
   display: block; }
 
 .third-screen_content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center;
   background-color: #ef8555; }
 
 .portfolio-item {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   margin: 10px;
   padding: 20px;
+  -webkit-transition: 0.6s;
   transition: 0.6s; }
   .portfolio-item:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1); }
   .portfolio-item:hover .portfolio-item_img {
     border-radius: 100px;
@@ -302,12 +357,22 @@ div {
 .portfolio-item_img {
   width: 200px;
   height: 200px;
+  -webkit-transition: 0.5s;
   transition: 0.5s; }
 
 .portfolio-item_info {
   margin-left: 15px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
   justify-content: space-around; }
   .portfolio-item_info h2 {
     font-family: "Corbert", sans-serif;
@@ -330,9 +395,21 @@ div {
 
 .fourth-screen_content {
   height: 62vh;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
   justify-content: space-around;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center; }
 
 .contacts-box {
@@ -374,6 +451,7 @@ div {
   .fourth-screen_git-hub-link a,
   .fourth-screen_phone-number a {
     color: #ef8555;
+    -webkit-transition: 0.5s;
     transition: 0.5s; }
     .fourth-screen_e-mail a:hover,
     .fourth-screen_git-hub-link a:hover,
@@ -390,6 +468,7 @@ div {
   background-size: contain;
   position: relative;
   cursor: pointer;
+  -webkit-transition: 1s;
   transition: 1s; }
   .to-top-link:before {
     content: "SCROLL TOP";
@@ -401,8 +480,11 @@ div {
     top: 40px;
     left: -17px;
     opacity: 0;
+    -webkit-transition: 1s;
     transition: 1s; }
   .to-top-link:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1); }
     .to-top-link:hover:before {
       opacity: 1; }
@@ -415,7 +497,20 @@ div {
   font-family: "Minaxi Hairline", sans-serif;
   position: relative;
   z-index: 2;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
   justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
   align-items: center; }
